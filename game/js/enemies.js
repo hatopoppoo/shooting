@@ -1,5 +1,7 @@
 export const enemies = [];
-const SIZE = 26;
+const SIZE = 40;
+const enemyImage = new Image();
+enemyImage.src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwf_Xp6Betg2IhK6EqdWnfa4l6wV7rniHFbBE7rMTnqE28eaEmUP6ZgZZusF5TxH_R-8r9ENcekbLJGgNpy4XoZzeaV6nGNeQz5V0pKo105ReDxbyLnIxUyODtmqZvGaRZmWmESTGcDXM/s170/monster06.png"
 
 function pushEnemies(canvas) {
   const w = SIZE;
@@ -23,13 +25,13 @@ export function updateEnemies(canvas) {
     e.y += e.vy;
     if (e.y > canvas.height) {
       enemies.splice(i, 1);
-   }
+    }
   }
 }
 
 export function drawEnemies(ctx) {
   ctx.fillStyle = "crimson";
   for (const e of enemies) {
-    ctx.fillRect(e.x, e.y, e.width, e.height);
+    ctx.drawImage(enemyImage, e.x, e.y, e.width, e.height);
   }
 }
