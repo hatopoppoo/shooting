@@ -51,28 +51,27 @@ function updateScore() {
 }
 
 window.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") {
-        if (player.x > 10) {
-            player.x -= 10;
-        }
-    } else if (e.key === "ArrowRight") {
-        if (player.x < canvas.width - player.width - 10) {
-            player.x += 10;
-        }
+    if (e.key === "ArrowLeft" && player.x > 10) {
+        player.x -= 10;
+    }
 
-        if (e.key === "ArrowUp") {
-            if (player.y > 10) {
-                player.y -= 10;
-            }
-        } else if (e.key === "ArrowDown") {
-            if (player.y < canvas.width - player.width - 10) {
-                player.y += 10;
-            }
+    if (e.key === "ArrowRight" && player.x < canvas.width - player.width - 10) {
+        player.x += 10;
+    }
 
-        } else if (e.code === "Space") {
-            tryShoot();
-        }
-    });
+    if (e.key === "ArrowUp" && player.y > 10) {
+        player.y -= 10;
+    }
+
+    if (e.key === "ArrowDown" && player.y < canvas.height - player.height - 10) {
+        player.y += 10;
+    }
+
+    if (e.code === "Space") {
+        tryShoot();
+    }
+});
+
 
 function update() {
     for (let i = 0; i < bullets.length; i++) {
